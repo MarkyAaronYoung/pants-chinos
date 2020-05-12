@@ -50,7 +50,22 @@ let domstring =
   <a class="navlink" href="#">Purchase</a>
 </nav>`
 
-printToDom("header", domstring)
+printToDom("header", domstring);
 }
 
+const makeFooter = () => {
+ let domstring =  `<nav class="nav">
+  <a class="navlink" href="./index.html">Home</a>
+  <a class="navlink navlink-mid" href="./past.html">History</a>
+  <a class="navlink navlink-mid" href="./present.html">Celebrities</a>
+  <a class="navlink navlink-mid" href="./future.html" style="font-size:22px;">Fashion Shows</a>
+  <a class="navlink" href="#">Shop</a>
+</nav>
+  <div id="copyright">© 2020 Team Chinos. All Rights Reserved</div>`
+
+  printToDom("footer",domstring);
+}
+
+
 makeNav();
+makeFooter();

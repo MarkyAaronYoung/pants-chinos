@@ -26,3 +26,15 @@ body {
   text-decoration: none;
   color: whitesmoke;
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#copyright {
+  text-align: center;
+  color: grey;
+}
