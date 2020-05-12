@@ -32,3 +32,27 @@ reviews = [
     hearts: 5
   }
 ]
+
+const printToDom = (selector, textToPrint) => {
+  const selectedDiv = document.querySelector(selector);
+  selectedDiv.innerHTML = textToPrint;
+}
+
+const mailingListButton = () => {
+  let domstring =`<button id="mailingListButton">Join Our Mailing List</button>`
+  printToDom("#mailingList",domstring);
+  document.querySelector("#mailingListButton").addEventListener('click', mlSubmitForm);
+}
+
+const mlSubmitForm = () => {
+  let domstring = `<input type='email' id="emailText"><button id="mlSubmitButton">Submit</button>`
+  printToDom("#mailingList",domstring);
+  document.querySelector("#mlSubmitButton").addEventListener('click', mlSubmitted);
+}
+
+const mlSubmitted = () => {
+  let domstring = `<H2 id="mlThanks">Thank You For Signing Up For Our Newsletter</h2>`
+  printToDom("#mailingList",domstring);
+}
+
+mailingListButton();
