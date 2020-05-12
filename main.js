@@ -32,3 +32,40 @@ reviews = [
     hearts: 5
   }
 ]
+
+// function for printing to DOM
+const printToDom = (selector, textToPrint) => {
+  const selectedDiv = document.querySelector(selector);
+  selectedDiv.innerHTML = textToPrint;
+}
+
+
+
+//function to parse cards for the reviews page.
+const printCards = (reviewCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i<reviewCollection.length; i++){
+    domString += `<div class="card bg-light col-md-3 m-3 h-100" style="width: 18em">
+    <div class="card-header">${reviewCollection[i].title}</div>
+    <div class="card-body">
+      <h5 class="card-title">${getHearts(reviewCollection[i].hearts)}</h5>
+      <p class="card-text">${reviewCollection[i].review}</p>
+    </div>
+  </div>`
+      
+    }
+  printToDom("#cardsDiv", domString)
+}
+
+const getHearts = (num) =>{
+  switch (num){
+    case 1: return "❤️"
+    case 2: return "❤️❤️"
+    case 3: return "❤️❤️❤️"
+    case 4: return "❤️❤️❤️❤️"
+    case 5: return "❤️❤️❤️❤️❤️"
+  }
+}
+
+printCards(reviews);
