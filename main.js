@@ -38,6 +38,7 @@ const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
 }
+
 const makeNav = ()=> {
 
 let domstring = 
@@ -69,3 +70,35 @@ const makeFooter = () => {
 
 makeNav();
 makeFooter();
+
+
+
+
+//function to parse cards for the reviews page.
+const printCards = (reviewCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i<reviewCollection.length; i++){
+    domString += `<div class="card bg-light col-md-4 m-3 h-100" style="width: 18em">
+    <div class="card-header text-center"><strong>${reviewCollection[i].title}</strong></div>
+    <div class="card-body">
+      <h5 class="card-title text-center">${getHearts(reviewCollection[i].hearts)}</h5>
+      <p class="card-text text-justify">${reviewCollection[i].review}</p>
+    </div>
+  </div>`
+      
+    }
+  printToDom("#cardsDiv", domString)
+}
+
+const getHearts = (num) =>{
+  switch (num){
+    case 1: return "❤️♡♡♡♡"
+    case 2: return "❤️❤️♡♡♡"
+    case 3: return "❤️❤️❤️♡♡"
+    case 4: return "❤️❤️❤️❤️♡"
+    case 5: return "❤️❤️❤️❤️❤️"
+  }
+}
+
+printCards(reviews);
