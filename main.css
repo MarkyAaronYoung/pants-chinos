@@ -1,3 +1,17 @@
 body {
-  background-color: blueviolet;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-page-header {
+  background-color: gainsboro;
+}
+
+.home-page-header div{
+  padding: 20px 45px 20px 20px;
+  font-size: smaller;
+}
+
+.homePageMain {
+  padding: 20px 30px;
 }
