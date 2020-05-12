@@ -68,11 +68,6 @@ const makeFooter = () => {
 }
 
 
-makeNav();
-makeFooter();
-
-
-
 
 //function to parse cards for the reviews page.
 const printCards = (reviewCollection) =>
@@ -101,4 +96,49 @@ const getHearts = (num) =>{
   }
 }
 
-printCards(reviews);
+const indexFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  printCards(reviews);
+}
+
+const pastFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  
+}
+
+const presentFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  
+}
+
+const futureFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  
+}
+
+const init = () => {
+  switch (window.location.pathname){
+    case "/index.html": 
+      indexFunctions();
+      break;
+    case "/past.html":
+      pastFunctions();
+      break;
+    case "/present.html":
+      presentFunctions();
+      break;
+    case "/future.html":
+      futureFunctions();
+      break;
+  };
+}
+
+init();
