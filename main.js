@@ -32,3 +32,25 @@ reviews = [
     hearts: 5
   }
 ]
+
+// function for printing to DOM
+const printToDom = (selector, textToPrint) => {
+  const selectedDiv = document.querySelector(selector);
+  selectedDiv.innerHTML = textToPrint;
+}
+const makeNav = ()=> {
+
+let domstring = 
+` <img src="https://www.gentlemansgazette.com/wp-content/uploads/2016/09/Khakis-Chinos.jpg" style="max-width:100%;">
+<nav class="nav">
+  <a class="navlink" href="./index.html">Home</a>
+  <a class="navlink navlink-mid" href="./past.html">Past</a>
+  <a class="navlink navlink-mid" href="./present.html">Present</a>
+  <a class="navlink navlink-mid" href="./future.html">Future</a>
+  <a class="navlink" href="#">Purchase</a>
+</nav>`
+
+printToDom("header", domstring)
+}
+
+makeNav();

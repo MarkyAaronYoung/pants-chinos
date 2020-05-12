@@ -1,3 +1,28 @@
 body {
-  background-color: blueviolet;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav {
+  background-color: #232323;
+  width: 100%;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 40px;}
+
+.navlink {
+  text-decoration: none;
+  color: white;
+  width: 20%;
+  text-align: center;
+  font-size: 25px;
+}
+.navlink-mid {
+  border-left: thin solid white;
+  border-right: thin solid white;
+}
+.navlink:hover {
+  text-decoration: none;
+  color: whitesmoke;
 }
