@@ -8,7 +8,8 @@ body {
   color: white;
   border: 1px solid white;
   border-radius: 5px;
-  line-height: 40px;  
+  line-height: 40px;
+  font-size: 30px;  
 }
 
 #emailText {
@@ -23,6 +24,7 @@ body {
   border-radius: 5px;
   line-height: 40px;
   margin-left: 25px; 
+  font-size: 30px;
 }
 
 #mlThanks {
