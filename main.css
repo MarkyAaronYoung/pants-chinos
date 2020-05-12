@@ -6,7 +6,30 @@ body {
   background-color: #232323;
   width: 50%;
   color: white;
-  border 1px solid white;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 40px;  
+}
+
+#emailText {
+  width: 30%;
+}
+
+#mlSubmitButton {
+  background-color: #232323;
+  width: 25%;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 40px;
+  margin-left: 25px; 
+}
+
+#mlThanks {
+  background-color: #232323;
+  width: 100%;
+  color: white;
+  border: 1px solid white;
   border-radius: 5px;
   line-height: 40px;  
 }

@@ -45,7 +45,7 @@ const mailingListButton = () => {
 }
 
 const mlSubmitForm = () => {
-  let domstring = `<input type='email' id="emailText"><button id="mlSubmitButton">Submit</button>`
+  let domstring = `<input type='email' id="emailText" placeholder="name@domain.com"><button id="mlSubmitButton">Submit</button>`
   printToDom("#mailingList",domstring);
   document.querySelector("#mlSubmitButton").addEventListener('click', mlSubmitted);
 }
