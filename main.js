@@ -39,6 +39,11 @@ const printToDom = (selector, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
+const printToHeading = (header, paragraph) => {
+  let domString = `<h2 id="headingHeader">${header}<h2><div id="headingText">${paragraph}</div>`
+  printToDom('#pageHeader',domString)
+}
+
 const makeNav = ()=> {
 
 let domstring = 
@@ -96,10 +101,18 @@ const getHearts = (num) =>{
   }
 }
 
+const homePageHeading = () => {
+  const headText = ""
+  const paragraphText = "Welcome to the Chino Historical Society Information Site. Chinos have been around for over 120 years. We've dedicated ourselves to follow the world of chinos in past, present, and future.<br><br> Check Out some reviews of Chinos below and we encourage you to join our mailing list for the most up to date news on Chinos<br><br>~~US"
+  printToHeading(headText,paragraphText);
+}
+
+
 const indexFunctions = () => {
   
   makeNav();
   makeFooter();
+  homePageHeading();
   printCards(reviews);
 }
 
@@ -140,5 +153,8 @@ const init = () => {
       break;
   };
 }
+
+
+
 
 init();
