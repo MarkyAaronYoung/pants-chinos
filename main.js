@@ -32,3 +32,30 @@ reviews = [
     hearts: 5
   }
 ]
+
+presentCards = [
+  { 
+  imageUrl: "https://imgur.com/GlVrXuh",
+  who: "Ryan Reynolds",
+  occupation: "Actor"
+  },
+  {
+  imageUrl: "https://imgur.com/a/ias8uDj",
+  who: "Brad Pitt",
+  occupation: "Actor"
+  },
+  {
+  imageUrl: "https://imgur.com/a/ias8uDj",
+  who: "Tom Brady",
+  occupation: "Athlete"
+  },
+  {
+  imageUrl: "https://imgur.com/a/fHMEMG5",
+  who: "David Beckham",
+  occupation: "Athlete",
+  },
+  {
+  img:
+  who:
+  occupation:
+  }
