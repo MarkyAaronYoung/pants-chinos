@@ -39,7 +39,7 @@ const printToDom = (selector, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
-const printToHeading = (header, paragraph) => {
+const printToHeading = (header,paragraph) => {
   let domString = `<h2 id="headingHeader">${header}<h2><div id="headingText">${paragraph}</div>`
   printToDom('#pageHeader',domString)
 }
@@ -158,3 +158,20 @@ const init = () => {
 
 
 init();
+const mailingListButton = () => {
+  printToDom("#mailingList",domstring);
+  document.querySelector("#mailingListButton").addEventListener('click', mlSubmitForm);
+}
+
+const mlSubmitForm = () => {
+  let domstring = `<input type='email' id="emailText" placeholder="name@domain.com"><button id="mlSubmitButton">Submit</button>`
+  printToDom("#mailingList",domstring);
+  document.querySelector("#mlSubmitButton").addEventListener('click', mlSubmitted);
+}
+
+const mlSubmitted = () => {
+  let domstring = `<H2 id="mlThanks">Thank You For Signing Up For Our Newsletter</h2>`
+  printToDom("#mailingList",domstring);
+}
+
+mailingListButton();
