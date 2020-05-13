@@ -35,27 +35,33 @@ reviews = [
 
 presentCards = [
   { 
-  imageUrl: "https://imgur.com/GlVrXuh",
-  who: "Ryan Reynolds",
-  occupation: "Actor"
+    imageUrl: "https://imgur.com/GlVrXuh",
+    who: "Ryan Reynolds",
+    occupation: "Actor"
   },
   {
-  imageUrl: "https://imgur.com/a/ias8uDj",
-  who: "Brad Pitt",
-  occupation: "Actor"
+    imageUrl: "https://imgur.com/a/ias8uDj",
+    who: "Brad Pitt",
+    occupation: "Actor"
   },
   {
-  imageUrl: "https://imgur.com/a/ias8uDj",
-  who: "Tom Brady",
-  occupation: "Athlete"
+    imageUrl: "https://imgur.com/a/ias8uDj",
+    who: "Tom Brady",
+    occupation: "Athlete"
   },
   {
-  imageUrl: "https://imgur.com/a/fHMEMG5",
-  who: "David Beckham",
-  occupation: "Athlete",
+    imageUrl: "https://imgur.com/a/fHMEMG5",
+    who: "David Beckham",
+    occupation: "Athlete"
   },
   {
-  img:
-  who:
-  occupation:
+    imageUrl: "https://imgur.com/a/uK7yeTY",
+    who: "Chino Moreno",
+    occupation: "Musician"
+  },
+  {
+    imageUrl: "https://imgur.com/a/IXF9n7e",
+    who: "Noel Gallagher",
+    occupation: "Musician"
   }
+]
