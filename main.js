@@ -1,4 +1,3 @@
-console.log('main things')
 
 reviews = [
   {
@@ -30,5 +29,29 @@ reviews = [
     title: "Great fit!",
     review: "These slacks are great! I loved them from the first time I put them on. I am 5'2 and around 200 lbs. I ALWAYS need my pant legs shortened. Not these! I purchased the 28 inch length. Ideally, I would like to be able to buy 26 inch length. But these are close enough that I can avoid alteration charges! Maybe not a big deal to most people, but so liberating to me to be able to buy slacks and wwear them right out of the package!",
     hearts: 5
+  }
+]
+
+//Future(Fashion Week) Page array
+futureCards = [
+  {
+    image: images/paris.png,
+    location: "Paris",
+    date: "1/20/21 - 1/23/21"
+  },
+  {
+    image: images/newyork.png,
+    location: "New York",
+    date: "2/6/21 - 2/13/21"
+  },
+  {
+    image: images/london.png,
+    location: "London",
+    date: "2/14/21 - 2/18/21"
+  },
+  {
+    image: images/nashville.png,
+    location: "Nashville",
+    date: "2/24/21 - 3/4/21"
   }
 ]
