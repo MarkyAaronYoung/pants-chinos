@@ -44,21 +44,24 @@ const printToHeading = (header,paragraph) => {
   printToDom('#pageHeader',domString)
 }
 
+//print header with image and navbar
 const makeNav = ()=> {
 
-let domstring = 
-` <img src="https://www.gentlemansgazette.com/wp-content/uploads/2016/09/Khakis-Chinos.jpg" style="max-width:100%;">
-<nav class="nav">
-  <a class="navlink" href="./index.html">Home</a>
-  <a class="navlink navlink-mid" href="./past.html">Past</a>
-  <a class="navlink navlink-mid" href="./present.html">Present</a>
-  <a class="navlink navlink-mid" href="./future.html">Future</a>
-  <a class="navlink" href="#">Purchase</a>
-</nav>`
+  let domstring = 
+  ` <img src="https://www.gentlemansgazette.com/wp-content/uploads/2016/09/Khakis-Chinos.jpg" style="max-width:100%;">
+  <nav class="nav">
+    <a class="navlink" href="./index.html">Home</a>
+    <a class="navlink navlink-mid" href="./past.html">Past</a>
+    <a class="navlink navlink-mid" href="./present.html">Present</a>
+    <a class="navlink navlink-mid" href="./future.html">Future</a>
+    <a class="navlink" href="#">Purchase</a>
+  </nav>`
 
-printToDom("header", domstring);
+  printToDom("header", domstring);
 }
 
+
+//print footer with navbar and copyright
 const makeFooter = () => {
  let domstring =  `<nav class="nav">
   <a class="navlink" href="./index.html">Home</a>
@@ -79,7 +82,7 @@ const printCards = (reviewCollection) =>
 { 
   let domString = ''
   for (let i = 0; i<reviewCollection.length; i++){
-    domString += `<div class="card bg-light col-md-4 m-3 h-100" style="width: 18em">
+    domString += `<div class="card bg-light col-md-5 m-2 h-100" style="width: 18em">
     <div class="card-header text-center"><strong>${reviewCollection[i].title}</strong></div>
     <div class="card-body">
       <h5 class="card-title text-center">${getHearts(reviewCollection[i].hearts)}</h5>
@@ -107,13 +110,31 @@ const homePageHeading = () => {
   printToHeading(headText,paragraphText);
 }
 
+const mailingListButton = () => {
+  let domString = `<button id="mailingListButton">Sign Up For Our Mailing List</button>`
+  printToDom("#mailingList",domString);
+  document.querySelector("#mailingListButton").addEventListener('click', mlSubmitForm);
+}
 
+const mlSubmitForm = () => {
+  let domString = `<input type='email' id="emailText" placeholder="name@domain.com"><button id="mlSubmitButton">Submit</button>`
+  printToDom("#mailingList",domString);
+  document.querySelector("#mlSubmitButton").addEventListener('click', mlSubmitted);
+}
+
+const mlSubmitted = () => {
+  let domString = `<H2 id="mlThanks">Thank You For Signing Up For Our Newsletter</h2>`
+  printToDom("#mailingList",domString);
+}
+
+//functions per page
 const indexFunctions = () => {
   
   makeNav();
   makeFooter();
   homePageHeading();
   printCards(reviews);
+  mailingListButton();
 }
 
 const pastFunctions = () => {
@@ -138,6 +159,7 @@ const futureFunctions = () => {
 }
 
 const init = () => {
+  console.log(window.location.pathname);
   switch (window.location.pathname){
     case "/index.html": 
       indexFunctions();
@@ -158,20 +180,3 @@ const init = () => {
 
 
 init();
-const mailingListButton = () => {
-  printToDom("#mailingList",domstring);
-  document.querySelector("#mailingListButton").addEventListener('click', mlSubmitForm);
-}
-
-const mlSubmitForm = () => {
-  let domstring = `<input type='email' id="emailText" placeholder="name@domain.com"><button id="mlSubmitButton">Submit</button>`
-  printToDom("#mailingList",domstring);
-  document.querySelector("#mlSubmitButton").addEventListener('click', mlSubmitted);
-}
-
-const mlSubmitted = () => {
-  let domstring = `<H2 id="mlThanks">Thank You For Signing Up For Our Newsletter</h2>`
-  printToDom("#mailingList",domstring);
-}
-
-mailingListButton();
