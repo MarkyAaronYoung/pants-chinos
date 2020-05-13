@@ -1,3 +1,90 @@
 body {
-  background-color: blueviolet;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav {
+  background-color: #232323;
+  width: 100%;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 40px;}
+
+.navlink {
+  text-decoration: none;
+  color: white;
+  width: 20%;
+  text-align: center;
+  font-size: 25px;
+}
+.navlink-mid {
+  border-left: thin solid white;
+  border-right: thin solid white;
+}
+.navlink:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+footer {
+  /* position: fixed;
+  left: 0;
+  bottom: 0; */
+  width: 100%;
+  background-color: white;
+}
+
+#copyright {
+  text-align: center;
+  color: grey;
+}
+.home-page-header {
+  background-size: 100% 100%;
+  background-color: gainsboro;
+  background-image: url('https://i.imgur.com/dVTgNpo.png');
+}
+
+.home-page-header div{
+  padding: 30px 45px 20px 25px;
+  font-size: smaller;
+}
+
+.homePageMain {
+  padding: 20px 60px;
+}
+
+#mailingListButton {
+  background-color: #232323;
+  width: 50%;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 40px;
+  font-size: 30px;  
+}
+
+#emailText {
+  width: 30%;
+}
+
+#mlSubmitButton {
+  background-color: #232323;
+  width: 25%;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 40px;
+  margin-left: 25px; 
+  font-size: 30px;
+}
+
+#mlThanks {
+  background-color: #232323;
+  width: 100%;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 40px;  
+  text-align: center;
 }

@@ -1,22 +1,22 @@
 //Future(Fashion Week) Page array
 futureCards = [
   {
-    image: images/paris.png,
+    image: 'images/paris.png',
     location: "Paris",
     date: "1/20/21 - 1/23/21"
   },
   {
-    image: images/newyork.png,
+    image: 'images/newyork.png',
     location: "New York",
     date: "2/6/21 - 2/13/21"
   },
   {
-    image: images/london.png,
+    image: 'images/london.png',
     location: "London",
     date: "2/14/21 - 2/18/21"
   },
   {
-    image: images/nashville.png,
+    image: 'images/nashville.png',
     location: "Nashville",
     date: "2/24/21 - 3/4/21"
   }
@@ -120,3 +120,150 @@ presentCards = [
     occupation: "Musician"
   }
 ]
+// function for printing to DOM
+const printToDom = (selector, textToPrint) => {
+  const selectedDiv = document.querySelector(selector);
+  selectedDiv.innerHTML = textToPrint;
+}
+
+const printToHeading = (header,paragraph) => {
+  let domString = `<h2 id="headingHeader">${header}<h2><div id="headingText">${paragraph}</div>`
+  printToDom('#pageHeader',domString)
+}
+
+//print header with image and navbar
+const makeNav = ()=> {
+
+  let domstring = 
+  ` <img src="https://www.gentlemansgazette.com/wp-content/uploads/2016/09/Khakis-Chinos.jpg" style="max-width:100%;">
+  <nav class="nav">
+    <a class="navlink" href="./index.html">Home</a>
+    <a class="navlink navlink-mid" href="./past.html">Past</a>
+    <a class="navlink navlink-mid" href="./present.html">Present</a>
+    <a class="navlink navlink-mid" href="./future.html">Future</a>
+    <a class="navlink" href="#">Purchase</a>
+  </nav>`
+
+  printToDom("header", domstring);
+}
+
+
+//print footer with navbar and copyright
+const makeFooter = () => {
+ let domstring =  `<nav class="nav">
+  <a class="navlink" href="./index.html">Home</a>
+  <a class="navlink navlink-mid" href="./past.html">History</a>
+  <a class="navlink navlink-mid" href="./present.html">Celebrities</a>
+  <a class="navlink navlink-mid" href="./future.html" style="font-size:22px;">Fashion Shows</a>
+  <a class="navlink" href="#">Shop</a>
+</nav>
+  <div id="copyright">© 2020 Team Chinos. All Rights Reserved</div>`
+
+  printToDom("footer",domstring);
+}
+
+
+
+//function to parse cards for the reviews page.
+const printCards = (reviewCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i<reviewCollection.length; i++){
+    domString += `<div class="card bg-light col-md-5 m-2 h-100" style="width: 18em">
+    <div class="card-header text-center"><strong>${reviewCollection[i].title}</strong></div>
+    <div class="card-body">
+      <h5 class="card-title text-center">${getHearts(reviewCollection[i].hearts)}</h5>
+      <p class="card-text text-justify">${reviewCollection[i].review}</p>
+    </div>
+  </div>`
+      
+    }
+  printToDom("#cardsDiv", domString)
+}
+
+const getHearts = (num) =>{
+  switch (num){
+    case 1: return "❤️♡♡♡♡"
+    case 2: return "❤️❤️♡♡♡"
+    case 3: return "❤️❤️❤️♡♡"
+    case 4: return "❤️❤️❤️❤️♡"
+    case 5: return "❤️❤️❤️❤️❤️"
+  }
+}
+
+const homePageHeading = () => {
+  const headText = ""
+  const paragraphText = "Welcome to the Chino Historical Society Information Site. Chinos have been around for over 120 years. We've dedicated ourselves to follow the world of chinos in past, present, and future.<br><br> Check Out some reviews of Chinos below and we encourage you to join our mailing list for the most up to date news on Chinos<br><br>~~US"
+  printToHeading(headText,paragraphText);
+}
+
+const mailingListButton = () => {
+  let domString = `<button id="mailingListButton">Sign Up For Our Mailing List</button>`
+  printToDom("#mailingList",domString);
+  document.querySelector("#mailingListButton").addEventListener('click', mlSubmitForm);
+}
+
+const mlSubmitForm = () => {
+  let domString = `<input type='email' id="emailText" placeholder="name@domain.com"><button id="mlSubmitButton">Submit</button>`
+  printToDom("#mailingList",domString);
+  document.querySelector("#mlSubmitButton").addEventListener('click', mlSubmitted);
+}
+
+const mlSubmitted = () => {
+  let domString = `<H2 id="mlThanks">Thank You For Signing Up For Our Newsletter</h2>`
+  printToDom("#mailingList",domString);
+}
+
+//functions per page
+const indexFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  homePageHeading();
+  printCards(reviews);
+  mailingListButton();
+}
+
+const pastFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  
+}
+
+const presentFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  
+}
+
+const futureFunctions = () => {
+  
+  makeNav();
+  makeFooter();
+  
+}
+
+const init = () => {
+  console.log(window.location.pathname);
+  switch (window.location.pathname){
+    case "/index.html": 
+      indexFunctions();
+      break;
+    case "/past.html":
+      pastFunctions();
+      break;
+    case "/present.html":
+      presentFunctions();
+      break;
+    case "/future.html":
+      futureFunctions();
+      break;
+  };
+}
+
+
+
+
+init();
