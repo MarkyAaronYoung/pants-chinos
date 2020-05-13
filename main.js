@@ -22,6 +22,39 @@ futureCards = [
   }
 ]
 
+// Past Array
+
+const pastCard = [
+  {
+    imageUrl: 'https://globerove.com/wp-content/uploads/2016/05/Spanish-American-War-Uniforms.jpg',
+    name: 'Spanish Military',
+    date: 1898,
+    country: 'Caribbean Sea & Asia Pacific',
+  },
+
+  {
+    imageUrl: 'https://www.vintagedetroit.com/blog/wp-content/uploads/2016/01/hank-greenberg-world-war-2-united-states-army.jpg',
+    name: 'Hank Greenberg',
+    date: 1941,
+    country: 'USA',
+  },
+
+  {
+    imageUrl: 'https://holeinthedonut.com/wp-content/uploads/2013/06/England-Jersey-Liberation-Day-Soldiers.jpg',
+    name: 'Royal Jersey Militia Army',
+    date: 2013,
+    country: 'England',
+  },
+
+  {
+    imageUrl: 'https://static01.nyt.com/images/2019/05/03/us/UNIFORMS-3/UNIFORMS-3-superJumbo.jpg?quality=90&auto=webp',
+    name: 'Army’s 19th Bombardment Group',
+    date: 2019,
+    country: 'USA',
+  },
+]
+
+// Main page array
 reviews = [
   {
     title: "Good pants, just slightly large.",
