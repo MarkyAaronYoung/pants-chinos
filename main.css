@@ -88,3 +88,22 @@ footer {
   line-height: 40px;  
   text-align: center;
 }
+
+/*future page*/
+.futurePage {
+  margin: 20px 60px;
+  text-align: center;
+}
+
+.futureCollectionCard {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+h5.card-title {
+  padding: 10px 0px;
+}
+
+.card-body {
+  text-align: center;
+}

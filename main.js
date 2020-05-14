@@ -242,7 +242,7 @@ const futureFunctions = () => {
   
   makeNav();
   makeFooter();
-  
+  printFutureCards(futureCards);
 }
 
 const init = () => {
@@ -263,6 +263,22 @@ const init = () => {
   };
 }
 
+// future domString
+const printFutureCards = (futureCollection) => { 
+  let domString = ''
+  for (let i = 0; i<futureCollection.length; i++){
+    domString += `<div class="card">
+                    <img class="card-img-top" src="${futureCollection[i].image}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">${futureCollection[i].location}</h5>
+                    <p class="card-text">${futureCollection[i].date}</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                  </div>`;
+      
+    }
+  printToDom("#futureDiv", domString)
+}
 
 
 
