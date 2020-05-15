@@ -90,32 +90,32 @@ reviews = [
 
 presentCards = [
   { 
-    imageUrl: "https://imgur.com/GlVrXuh",
+    imageUrl: "images/RyanReynolds.png",
     who: "Ryan Reynolds",
     occupation: "Actor"
   },
   {
-    imageUrl: "https://imgur.com/a/ias8uDj",
+    imageUrl: "images/BradPitt.png",
     who: "Brad Pitt",
     occupation: "Actor"
   },
   {
-    imageUrl: "https://imgur.com/a/ias8uDj",
+    imageUrl: "images/TomBrady.png",
     who: "Tom Brady",
     occupation: "Athlete"
   },
   {
-    imageUrl: "https://imgur.com/a/fHMEMG5",
+    imageUrl: "images/DavidBeckham.png",
     who: "David Beckham",
     occupation: "Athlete"
   },
   {
-    imageUrl: "https://imgur.com/a/uK7yeTY",
+    imageUrl: "images/ChinoMoreno.png",
     who: "Chino Moreno",
     occupation: "Musician"
   },
   {
-    imageUrl: "https://imgur.com/a/IXF9n7e",
+    imageUrl: "images/NoelGallagher.png",
     who: "Noel Gallagher",
     occupation: "Musician"
   }
@@ -181,6 +181,24 @@ const printCards = (reviewCollection) =>
   printToDom("#cardsDiv", domString)
 }
 
+//function to parse celebrity cards to present page.
+const printCelebrityCards = (presentCardCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i < presentCardCollection.length; i++){
+    domString += `<div class="card bg-light col-md-5 m-2 h-100" style="width: 18rem">
+    <div class="card-body-present">
+      <img class="present" src="${presentCardCollection[i].imageUrl}" alt="">
+      <h5 class="card-title text-center">${presentCardCollection[i].who}</h5>
+      <p class="card-text text-center">${presentCardCollection[i].occupation}</p>
+    </div>
+  </div>`
+      
+    }
+  printToDom("#presentDiv", domString)
+}
+
+
 const getHearts = (num) =>{
   switch (num){
     case 1: return "❤️♡♡♡♡"
@@ -235,7 +253,7 @@ const presentFunctions = () => {
   
   makeNav();
   makeFooter();
-  
+  printCelebrityCards(presentCards);
 }
 
 const futureFunctions = () => {
