@@ -267,7 +267,7 @@ const init = () => {
 const printFutureCards = (futureCollection) => { 
   let domString = ''
   for (let i = 0; i<futureCollection.length; i++){
-    domString += `<div class="card">
+    domString += `<div class="card m-2">
                     <img class="card-img-top" src="${futureCollection[i].image}" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title">${futureCollection[i].location}</h5>
