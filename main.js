@@ -26,9 +26,9 @@ futureCards = [
 
 const pastCard = [
   {
-    imageUrl: 'https://globerove.com/wp-content/uploads/2016/05/Spanish-American-War-Uniforms.jpg',
-    name: 'Spanish Military',
-    date: 1898,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/1901_-_Spanish-American_War_Veterans_-_Allentown_PA.jpg',
+    name: 'Allentown Militia Officers',
+    date: 1901,
     country: 'Caribbean Sea & Asia Pacific',
   },
 
@@ -47,9 +47,9 @@ const pastCard = [
   },
 
   {
-    imageUrl: 'https://static01.nyt.com/images/2019/05/03/us/UNIFORMS-3/UNIFORMS-3-superJumbo.jpg?quality=90&auto=webp',
-    name: 'Army’s 19th Bombardment Group',
-    date: 2019,
+    imageUrl: 'https://static01.nyt.com/images/2019/05/03/us/UNIFORMS-1/UNIFORMS-1-superJumbo.jpg',
+    name: 'US Army',
+    date: 2017,
     country: 'USA',
   },
 ]
@@ -191,6 +191,25 @@ const getHearts = (num) =>{
   }
 }
 
+
+// printing past cards
+const printPastCards = (pastCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i<pastCollection.length; i++){
+    domString += `<div class ="card m-2">`
+    domString += `<img class ="card-img-top" src="${pastCollection[i].imageUrl}" alt="Card image">`
+    domString += `<div class="card-body">`
+    domString += `<h5 class ="card-title">${pastCollection[i].name}</h5>`
+    domString += `<p class="card-text">${pastCollection[i].date}</p>`
+    domString += `<p class="card-text">${pastCollection[i].country}</p>`
+    domString += `</div>`
+    domString += `</div>`
+      
+    }
+  printToDom("#pastCardsDiv", domString)
+}
+
 const homePageHeading = () => {
   const headText = ""
   const paragraphText = "Welcome to the Chino Historical Society Information Site. Chinos have been around for over 120 years. We've dedicated ourselves to follow the world of chinos in past, present, and future.<br><br> Check Out some reviews of Chinos below and we encourage you to join our mailing list for the most up to date news on Chinos<br><br>~~US"
@@ -228,6 +247,7 @@ const pastFunctions = () => {
   
   makeNav();
   makeFooter();
+  printPastCards(pastCard);
   
 }
 
