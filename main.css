@@ -88,3 +88,43 @@ footer {
   line-height: 40px;  
   text-align: center;
 }
+
+/* past cards */
+.pastPage {
+  margin; 20px 60px;
+  text-align: center;
+}
+
+.pastCollectionCard {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+img.card-img-top{
+  width: 500px;
+  border-radius: 8px;
+}
+
+h5.card-title {
+  padding: 10px 0px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+#pastPageHeader {
+  font-size: 40px;
+  text-align: center;
+}
+
+#pastText {
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn-group {
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+}
