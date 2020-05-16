@@ -3,6 +3,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* present card */
+img.present {
+  width: 300px;
+  height: 500px;
+}
+
 .nav {
   background-color: #232323;
   width: 100%;
@@ -18,6 +24,8 @@ body {
   text-align: center;
   font-size: 25px;
 }
+
+
 .navlink-mid {
   border-left: thin solid white;
   border-right: thin solid white;
@@ -91,7 +99,7 @@ footer {
 
 /* past cards */
 .pastPage {
-  margin; 20px 60px;
+  margin: 20px 60px;
   text-align: center;
 }
 
@@ -127,4 +135,31 @@ h5.card-title {
   justify-content: center;
   width: 100%;
   padding: 10px;
+}
+
+/* present card */
+
+.card-body-present {
+  font-size: 20px;
+}
+
+#presentText {
+  font-size: 20px;
+  text-align: center;
+}
+
+#presentPageHeader {
+  font-size: 40px;
+  text-align: center;
+}
+
+#celebPics {
+  max-width: 300px;
+  border-radius: 5px;
+}
+
+#celebCard {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px;
 }

@@ -90,34 +90,34 @@ reviews = [
 
 presentCards = [
   { 
-    imageUrl: "https://imgur.com/GlVrXuh",
+    imageUrl: "images/RyanReynolds.png",
     who: "Ryan Reynolds",
     occupation: "Actor"
   },
   {
-    imageUrl: "https://imgur.com/a/ias8uDj",
+    imageUrl: "images/BradPitt.png",
     who: "Brad Pitt",
     occupation: "Actor"
   },
   {
-    imageUrl: "https://imgur.com/a/ias8uDj",
+    imageUrl: "images/TomBrady.png",
     who: "Tom Brady",
     occupation: "Athlete"
   },
   {
-    imageUrl: "https://imgur.com/a/fHMEMG5",
+    imageUrl: "images/DavidBeckham.png",
     who: "David Beckham",
     occupation: "Athlete"
   },
   {
-    imageUrl: "https://imgur.com/a/uK7yeTY",
+    imageUrl: "images/ChinoMoreno.jpeg",
     who: "Chino Moreno",
     occupation: "Musician"
   },
   {
-    imageUrl: "https://imgur.com/a/IXF9n7e",
-    who: "Noel Gallagher",
-    occupation: "Musician"
+    imageUrl: "images/PrinceHarry.jpeg",
+    who: "Prince Harry",
+    occupation: "Politician"
   }
 ]
 // function for printing to DOM
@@ -180,6 +180,44 @@ const printCards = (reviewCollection) =>
     }
   printToDom("#cardsDiv", domString)
 }
+
+//function to parse celebrity cards to present page.
+const printCelebrityCards = (presentCardCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i < presentCardCollection.length; i++){
+    domString += `
+    <div class="card m-2" id="celebCard">
+        <img class="card-img-top" id="celebPics" src="${presentCardCollection[i].imageUrl}" alt="Card image">
+      <div class="card-body-present">
+        <h5 class="card-title text-left">Who: ${presentCardCollection[i].who}</h5>
+        <p class="card-text text-left">Occupation: ${presentCardCollection[i].occupation}</p>
+      </div>
+    </div>`
+      
+    }
+  printToDom("#presentDiv", domString)
+}
+
+const filterCelebEvent = (event) => {
+  const buttonId = event.target.id;
+  const tempCelebCollection = [];
+  
+  for (let i = 0; i < presentCards.length; i++) {
+    if (presentCards[i].occupation === buttonId) {
+      tempCelebCollection.push(presentCards[i]);
+    }
+  }
+
+  printCelebrityCards(tempCelebCollection);
+}
+
+const clickEvents = () => {
+  document.querySelector('#Athlete').addEventListener('click', filterCelebEvent);
+  document.querySelector('#Politician').addEventListener('click', filterCelebEvent);
+  document.querySelector('#Actor').addEventListener('click', filterCelebEvent);
+}
+
 
 const getHearts = (num) =>{
   switch (num){
@@ -255,7 +293,8 @@ const presentFunctions = () => {
   
   makeNav();
   makeFooter();
-  
+  printCelebrityCards(presentCards);
+  clickEvents();
 }
 
 const futureFunctions = () => {
