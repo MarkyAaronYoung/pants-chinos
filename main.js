@@ -110,14 +110,14 @@ presentCards = [
     occupation: "Athlete"
   },
   {
-    imageUrl: "images/ChinoMoreno.png",
+    imageUrl: "images/ChinoMoreno.jpeg",
     who: "Chino Moreno",
     occupation: "Musician"
   },
   {
-    imageUrl: "images/NoelGallagher.png",
-    who: "Noel Gallagher",
-    occupation: "Musician"
+    imageUrl: "images/PrinceHarry.jpeg",
+    who: "Prince Harry",
+    occupation: "Politician"
   }
 ]
 // function for printing to DOM
@@ -186,16 +186,36 @@ const printCelebrityCards = (presentCardCollection) =>
 { 
   let domString = ''
   for (let i = 0; i < presentCardCollection.length; i++){
-    domString += `<div class="card bg-light col-md-5 m-2 h-100" style="width: 18rem">
-    <div class="card-body-present">
-      <img class="present" src="${presentCardCollection[i].imageUrl}" alt="">
-      <h5 class="card-title text-center">${presentCardCollection[i].who}</h5>
-      <p class="card-text text-center">${presentCardCollection[i].occupation}</p>
-    </div>
-  </div>`
+    domString += `
+    <div class="card m-2" id="celebCard">
+        <img class="card-img-top" id="celebPics" src="${presentCardCollection[i].imageUrl}" alt="Card image">
+      <div class="card-body-present">
+        <h5 class="card-title text-left">Who: ${presentCardCollection[i].who}</h5>
+        <p class="card-text text-left">Occupation: ${presentCardCollection[i].occupation}</p>
+      </div>
+    </div>`
       
     }
   printToDom("#presentDiv", domString)
+}
+
+const filterCelebEvent = (event) => {
+  const buttonId = event.target.id;
+  const tempCelebCollection = [];
+  
+  for (let i = 0; i < presentCards.length; i++) {
+    if (presentCards[i].occupation === buttonId) {
+      tempCelebCollection.push(presentCards[i]);
+    }
+  }
+
+  printCelebrityCards(tempCelebCollection);
+}
+
+const clickEvents = () => {
+  document.querySelector('#Athlete').addEventListener('click', filterCelebEvent);
+  document.querySelector('#Politician').addEventListener('click', filterCelebEvent);
+  document.querySelector('#Actor').addEventListener('click', filterCelebEvent);
 }
 
 
@@ -274,6 +294,7 @@ const presentFunctions = () => {
   makeNav();
   makeFooter();
   printCelebrityCards(presentCards);
+  clickEvents();
 }
 
 const futureFunctions = () => {
