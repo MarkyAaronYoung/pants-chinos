@@ -3,22 +3,26 @@ futureCards = [
   {
     image: 'images/paris.png',
     location: "Paris",
-    date: "1/20/21 - 1/23/21"
+    date: "January 20 - 23, 2021",
+    timer: ''
   },
   {
     image: 'images/newyork.png',
     location: "New York",
-    date: "2/6/21 - 2/13/21"
+    date: "February 6 - 13, 2021",
+    timer: ''
   },
   {
     image: 'images/london.png',
     location: "London",
-    date: "2/14/21 - 2/18/21"
+    date: "February 14 - 18, 2021",
+    timer: ''
   },
   {
     image: 'images/nashville.png',
     location: "Nashville",
-    date: "2/24/21 - 3/4/21"
+    date: "February 24 - March 4, 2021",
+    timer: ''
   }
 ]
 
@@ -301,7 +305,7 @@ const futureFunctions = () => {
   
   makeNav();
   makeFooter();
-  
+  printFutureCards(futureCards);
 }
 
 const init = () => {
@@ -322,7 +326,41 @@ const init = () => {
   };
 }
 
+// future domString
+const printFutureCards = (futureCollection) => { 
+  let domString = ''
+  for (let i = 0; i<futureCollection.length; i++) {
+    domString += `<div class="card m-2">
+                    <img class="card-img-top" src="${futureCollection[i].image}" alt="Card image cap">
+                  <div class="card-body">
+                    <h4 class="card-title">${futureCollection[i].location}</h4>
+                    <p class="card-text">${futureCollection[i].date}</p>
+                    <p id="timer" class="card-text"><small class="text-muted">${(futureCollection[i].timer)}</small></p>
+                  </div>
+                  </div>`;
+      
+  }
+  printToDom("#futureDiv", domString)
+}
 
+let parisDate = new Date("Jan 20, 2021 19:00:00").getTime();
+let nycDate = new Date("Feb 6, 2021 19:00:00").getTime();
+let londonDate = new Date("Feb 14, 2021 19:00:00").getTime();
+let nashvilleDate = new Date("Feb 24, 2021 19:00:00").getTime();
 
+// update count down every second
+var second = setInterval(function() {
+
+  var now = new Date().getTime(); // today's date and time
+  let timeLeft = parisDate - now;
+  
+  // time calculations for days, hours, minutes, and seconds
+  let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+}, 1000);
 
 init();

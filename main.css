@@ -97,12 +97,27 @@ footer {
   text-align: center;
 }
 
+
+/*future page*/
+.futurePage {
+  margin: 20px 60px;
+  text-align: center;
+}
 /* past cards */
 .pastPage {
   margin: 20px 60px;
   text-align: center;
 }
 
+
+#mainContainer h1 {
+  text-align: center;
+}
+
+.futureCollectionCard {
+  border: 1px solid black;
+  border-radius: 5px;
+}
 .pastCollectionCard {
   border: 1px solid black;
   border-radius: 5px;
@@ -115,6 +130,15 @@ img.card-img-top{
 
 h5.card-title {
   padding: 10px 0px;
+}
+
+
+div.card-body {
+  text-align: center;
+}
+
+p#timer.card-text {
+  font-size: 12px;
 }
 
 .card-body {
