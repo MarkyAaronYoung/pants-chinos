@@ -30,9 +30,9 @@ futureCards = [
 
 const pastCard = [
   {
-    imageUrl: 'https://globerove.com/wp-content/uploads/2016/05/Spanish-American-War-Uniforms.jpg',
-    name: 'Spanish Military',
-    date: 1898,
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/1901_-_Spanish-American_War_Veterans_-_Allentown_PA.jpg',
+    name: 'Allentown Militia Officers',
+    date: 1901,
     country: 'Caribbean Sea & Asia Pacific',
   },
 
@@ -51,9 +51,9 @@ const pastCard = [
   },
 
   {
-    imageUrl: 'https://static01.nyt.com/images/2019/05/03/us/UNIFORMS-3/UNIFORMS-3-superJumbo.jpg?quality=90&auto=webp',
-    name: 'Army’s 19th Bombardment Group',
-    date: 2019,
+    imageUrl: 'https://static01.nyt.com/images/2019/05/03/us/UNIFORMS-1/UNIFORMS-1-superJumbo.jpg',
+    name: 'US Army',
+    date: 2017,
     country: 'USA',
   },
 ]
@@ -94,34 +94,34 @@ reviews = [
 
 presentCards = [
   { 
-    imageUrl: "https://imgur.com/GlVrXuh",
+    imageUrl: "images/RyanReynolds.png",
     who: "Ryan Reynolds",
     occupation: "Actor"
   },
   {
-    imageUrl: "https://imgur.com/a/ias8uDj",
+    imageUrl: "images/BradPitt.png",
     who: "Brad Pitt",
     occupation: "Actor"
   },
   {
-    imageUrl: "https://imgur.com/a/ias8uDj",
+    imageUrl: "images/TomBrady.png",
     who: "Tom Brady",
     occupation: "Athlete"
   },
   {
-    imageUrl: "https://imgur.com/a/fHMEMG5",
+    imageUrl: "images/DavidBeckham.png",
     who: "David Beckham",
     occupation: "Athlete"
   },
   {
-    imageUrl: "https://imgur.com/a/uK7yeTY",
+    imageUrl: "images/ChinoMoreno.jpeg",
     who: "Chino Moreno",
     occupation: "Musician"
   },
   {
-    imageUrl: "https://imgur.com/a/IXF9n7e",
-    who: "Noel Gallagher",
-    occupation: "Musician"
+    imageUrl: "images/PrinceHarry.jpeg",
+    who: "Prince Harry",
+    occupation: "Politician"
   }
 ]
 // function for printing to DOM
@@ -185,6 +185,44 @@ const printCards = (reviewCollection) =>
   printToDom("#cardsDiv", domString)
 }
 
+//function to parse celebrity cards to present page.
+const printCelebrityCards = (presentCardCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i < presentCardCollection.length; i++){
+    domString += `
+    <div class="card m-2" id="celebCard">
+        <img class="card-img-top" id="celebPics" src="${presentCardCollection[i].imageUrl}" alt="Card image">
+      <div class="card-body-present">
+        <h5 class="card-title text-left">Who: ${presentCardCollection[i].who}</h5>
+        <p class="card-text text-left">Occupation: ${presentCardCollection[i].occupation}</p>
+      </div>
+    </div>`
+      
+    }
+  printToDom("#presentDiv", domString)
+}
+
+const filterCelebEvent = (event) => {
+  const buttonId = event.target.id;
+  const tempCelebCollection = [];
+  
+  for (let i = 0; i < presentCards.length; i++) {
+    if (presentCards[i].occupation === buttonId) {
+      tempCelebCollection.push(presentCards[i]);
+    }
+  }
+
+  printCelebrityCards(tempCelebCollection);
+}
+
+const clickEvents = () => {
+  document.querySelector('#Athlete').addEventListener('click', filterCelebEvent);
+  document.querySelector('#Politician').addEventListener('click', filterCelebEvent);
+  document.querySelector('#Actor').addEventListener('click', filterCelebEvent);
+}
+
+
 const getHearts = (num) =>{
   switch (num){
     case 1: return "❤️♡♡♡♡"
@@ -193,6 +231,25 @@ const getHearts = (num) =>{
     case 4: return "❤️❤️❤️❤️♡"
     case 5: return "❤️❤️❤️❤️❤️"
   }
+}
+
+
+// printing past cards
+const printPastCards = (pastCollection) =>
+{ 
+  let domString = ''
+  for (let i = 0; i<pastCollection.length; i++){
+    domString += `<div class ="card m-2">`
+    domString += `<img class ="card-img-top" src="${pastCollection[i].imageUrl}" alt="Card image">`
+    domString += `<div class="card-body">`
+    domString += `<h5 class ="card-title">${pastCollection[i].name}</h5>`
+    domString += `<p class="card-text">${pastCollection[i].date}</p>`
+    domString += `<p class="card-text">${pastCollection[i].country}</p>`
+    domString += `</div>`
+    domString += `</div>`
+      
+    }
+  printToDom("#pastCardsDiv", domString)
 }
 
 const homePageHeading = () => {
@@ -232,6 +289,7 @@ const pastFunctions = () => {
   
   makeNav();
   makeFooter();
+  printPastCards(pastCard);
   
 }
 
@@ -239,7 +297,8 @@ const presentFunctions = () => {
   
   makeNav();
   makeFooter();
-  
+  printCelebrityCards(presentCards);
+  clickEvents();
 }
 
 const futureFunctions = () => {
