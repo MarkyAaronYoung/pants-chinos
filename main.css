@@ -95,6 +95,10 @@ footer {
   text-align: center;
 }
 
+#mainContainer h1 {
+  text-align: center;
+}
+
 .futureCollectionCard {
   border: 1px solid black;
   border-radius: 5px;
@@ -104,6 +108,10 @@ h5.card-title {
   padding: 10px 0px;
 }
 
-.card-body {
+div.card-body {
   text-align: center;
+}
+
+p#timer.card-text {
+  font-size: 12px;
 }
